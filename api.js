@@ -6,33 +6,32 @@ async function fetchdata() {
 
         let str = ``;
 
-        // Check if data.recipes exists and is an array
         if (Array.isArray(data.recipes)) {
-            data.recipes.forEach((food) => {
+            // Sort recipes by ID ascending
+            const sortedRecipes = data.recipes.sort((a, b) => a.id - b.id);
+
+            sortedRecipes.forEach((food) => {
                 str += `
                 <div class="card">
                     <a href="./details.html?id=${food.id}">
-                        <center>
-                            <img class="img1" src="${food.image}" alt="${food.name}" width="170px" height="170px"><br>
-                            <h2>${food.name}</h2><br>
-                            <h3>Price: $${food.userId}</h3><br>
-                            <p>Category: ${food.mealType?.join(', ')}</p><br>
-                            <p class="rating">Rating: ${food.rating}</p><br>
-                            <p class="ingredients">Ingredients: ${food.ingredients}</p><br>
-                            <p class="instructions">Instructions: ${food.instructions}</p><br>
-                        </center>
+                        <img class="img1" src="${food.image}" alt="${food.name}">
+                        <h2>${food.name}</h2>
+                        <h3>Price: $${food.userId}</h3>
+                        <p>Category: ${food.mealType?.join(', ') || 'N/A'}</p>
+                        <p class="rating">Rating: ${food.rating}</p>
                     </a>
                 </div>
                 `;
             });
         } else {
-            console.log('No recipes found in data.');
+            str = `<p>No recipes found.</p>`;
         }
 
         document.getElementById("container").innerHTML = str;
 
     } catch (error) {
         console.error('Fetch error:', error);
+        document.getElementById("container").innerHTML = `<p>Error loading recipes.</p>`;
     }
 }
 
