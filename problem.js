@@ -6,7 +6,7 @@ function zigzag(){
     let row = 0;
 
     for (let i=65; i<=90; i++){
-        rows[row] += String.fromCharCode(i)+" ";
+        rows[row] += String.fromCharCode(i)+"\t";
         row += direction;
 
         if(row===0 || row===2)
@@ -33,4 +33,4 @@ function emailValid(email)
 }
 console.log(emailValid("hello@gmail.com"));
 console.log(emailValid("hellogmail.com"));
-console.log(emailValid("hello@gmailcom"));
+console.log(emailValid("@hellogmail.com"));
