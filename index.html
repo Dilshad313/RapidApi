@@ -3,21 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapid API</title>
+    <title>FlavorFusion | Discover Amazing Recipes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar">
-    <div class="logo">MySite</div>
+    <div class="logo">
+        <i class="fas fa-utensils"></i>
+        <span>FlavorFusion</span>
+    </div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="recipes.html">Recipes</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="datails.html"><i class="fas fa-book-open"></i> Recipes</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><button id="theme-toggle"><i class="fas fa-moon"></i></button></li>
     </ul>
+    <div class="hamburger">
+        <i class="fas fa-bars"></i>
+    </div>
   </nav>
 
+  <header class="hero">
+    <div class="hero-content">
+        <h1>Discover Culinary Delights</h1>
+        <p>Explore hundreds of delicious recipes from around the world</p>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search recipes...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+  </header>
+
+  <section class="categories">
+    <h2>Popular Categories</h2>
+    <div class="category-list">
+        <div class="category-card" data-category="vegetarian">
+            <i class="fas fa-leaf"></i>
+            <span>Vegetarian</span>
+        </div>
+        <div class="category-card" data-category="dessert">
+            <i class="fas fa-ice-cream"></i>
+            <span>Desserts</span>
+        </div>
+        <div class="category-card" data-category="italian">
+            <i class="fas fa-pizza-slice"></i>
+            <span>Italian</span>
+        </div>
+        <div class="category-card" data-category="asian">
+            <i class="fas fa-utensil-spoon"></i>
+            <span>Asian</span>
+        </div>
+        <div class="category-card" data-category="quick">
+            <i class="fas fa-clock"></i>
+            <span>Quick Meals</span>
+        </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">Featured Recipes</h2>
     <div id="container"></div>
-    <script src="./api.js"></script>
+    <div class="pagination">
+        <button id="prev-btn" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+        <span id="page-info">Page 1 of 5</span>
+        <button id="next-btn">Next <i class="fas fa-chevron-right"></i></button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About FlavorFusion</h3>
+            <p>Discover, cook, and share amazing recipes from around the world. Our mission is to make cooking accessible to everyone.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>Subscribe to our newsletter for weekly recipes</p>
+            <div class="newsletter">
+                <input type="email" placeholder="Your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 FlavorFusion. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./api.js"></script>
 </body>
 </html>
